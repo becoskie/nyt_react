@@ -8,10 +8,8 @@ class Search extends Component {
         topic: "",
         fromYear: "",
         toYear: "",
-        articles: [],
-        saved: []
+        articles: []
       };
-
 
       handleTopic = (event) => {
         this.setState({ topic: event.target.value });
@@ -37,9 +35,8 @@ class Search extends Component {
       handleSaveButton = (id) => {
         const findArticleByID = this.state.articles.find((el) => el._id === id);
         console.log("findArticleByID: ", findArticleByID);
-        // const newSave = {title: findArticleByID.headline.main, date: findArticleByID.pub_date, url: findArticleByID.web_url};
-        // API.saveArticle(newSave)
-        // .then(this.getSavedArticles());
+        const userSave = {title: findArticleByID.headline.main, date: findArticleByID.pub_date, url: findArticleByID.web_url};
+        API.saveArticle(userSave)
       }
 
 

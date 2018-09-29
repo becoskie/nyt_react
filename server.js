@@ -18,9 +18,22 @@ if (process.env.NODE_ENV === "production") {
 // app.use(routes);
 // Send every other request to the React app
 // Define any API routes before this runs
-app.get("*", (req, res) => {
+var articlesController = require("./controllers/articleController");
+var router = new express.Router();
+// Define any API routes first
+// Get saved articles
+router.get("/api/saved", articlesController.find);
+// Save articles
+router.post("/api/saved", articlesController.insert);
+// delete saved articles
+router.delete("/api/saved/:id", articlesController.delete);
+// Send every other request to the React app
+router.get("/*", function(req, res) {
   res.sendFile(path.join(__dirname, "./client/build/index.html"));
 });
+
+app.use(router);
+
 
 const db = process.env.MONGODB_URI || "mongodb://localhost/nyt-react";
 mongoose.connect(db, function(error) {
