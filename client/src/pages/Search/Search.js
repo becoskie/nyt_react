@@ -30,7 +30,16 @@ class Search extends Component {
         API.searchTopic(this.state.topic, this.state.fromYear, this.state.toYear)
           .then((res) => {
             this.setState({ articles: res.data.response.docs });
+            console.log("this.state.articles: ", this.state.articles);
           });
+      }
+
+      handleSaveButton = (id) => {
+        const findArticleByID = this.state.articles.find((el) => el._id === id);
+        console.log("findArticleByID: ", findArticleByID);
+        // const newSave = {title: findArticleByID.headline.main, date: findArticleByID.pub_date, url: findArticleByID.web_url};
+        // API.saveArticle(newSave)
+        // .then(this.getSavedArticles());
       }
 
 
@@ -46,9 +55,10 @@ class Search extends Component {
           handleSubmit={this.handleSubmit}
           />
         </div>
-        <div className="row">
-          <ArticleCard />
-        </div>
+          <ArticleCard 
+          articles={this.state.articles}
+          handleSaveButton={this.handleSaveButton}
+          />
       </div>
     );
   }
