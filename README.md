@@ -1,6 +1,6 @@
 # New York Times Article Search
 
-A React.js app that allows users to for articles in the New York Times. After searching a topic, the app displays the related articles with a save option. Sending the relevent data to the database to be retrieved when visiting the saved page. The users are able to delete the articles from the saved page. If there are no articles associated with the topic, a message is diplayed informing the user that there are no articles related to the topic. The app uses Node/Express for the server and routing, MongoDB/Mongoose for the database and React on the client side.
+A React.js app that allows users to search for articles in the New York Times. After searching a topic, the app displays the related articles with a save option, sending the relevent data to the database to be retrieved when visiting the saved page. The users are able to delete the articles from the saved page. If there are no articles associated with the topic, a message is diplayed informing the user that there are no articles related to the topic. The app uses Node/Express for the server and routing, MongoDB/Mongoose for the database and React on the client side.
 
 [Live Link](https://becoskie-nyt.herokuapp.com/)
 
@@ -33,5 +33,5 @@ yarn install
 
 ![screenshot-1](images/react.png)
 
-### You know what goes good with NY Times? 
+### You know what goes good with the NY Times? 
 <a class="bmc-button" target="_blank" href="https://www.buymeacoffee.com/mwFGJN9bZ"><img src="https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png" alt="Buy me a coffee"></a>
