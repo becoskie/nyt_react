@@ -2,12 +2,14 @@ import React, { Component } from "react";
 import SearchForm from "../../components/SearchForm";
 import ArticleCard from "../../components/ArticleCard";
 import API from "../../utils/api";
+import "./Search.css";
 
 class Search extends Component {
   state = {
     topic: "",
     fromYear: "",
     toYear: "",
+    message: "",
     articles: []
   };
 
@@ -23,8 +25,11 @@ class Search extends Component {
     this.setState({ toYear: event.target.value });
   };
 
+
+
   handleSubmit = event => {
     event.preventDefault();
+    this.setState( {message:""} )
     API.searchTopic(
       this.state.topic,
       this.state.fromYear,
@@ -32,6 +37,10 @@ class Search extends Component {
     ).then(res => {
       this.setState({ articles: res.data.response.docs });
       console.log("this.state.articles: ", this.state.articles);
+      document.getElementById("create-course-form").reset();
+      if(this.state.articles.length < 1) {
+        this.setState( {message: `No Articles Found for "${this.state.topic}"`} );
+      }
     });
   };
 
@@ -52,7 +61,7 @@ class Search extends Component {
 
   render() {
     return (
-      <div className="container">
+      <div className="container col-10 offset-1">
         <div className="row">
           <SearchForm
             handleTopic={this.handleTopic}
@@ -60,6 +69,9 @@ class Search extends Component {
             handleToYear={this.handleToYear}
             handleSubmit={this.handleSubmit}
           />
+        </div>
+        <div>
+          <h1 id="noMessage" className="text-center">{this.state.message}</h1>
         </div>
         <ArticleCard
           articles={this.state.articles}

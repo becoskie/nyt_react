@@ -3,7 +3,7 @@ import "./SearchForm.css";
 
 const SearchForm = props => (
   <div className="container mb-5">
-    <form className="search col-md-6 offset-md-3">
+    <form id="create-course-form" className="search col-md-6 offset-md-3">
       <div className="form-group">
         <label htmlFor="articleSearch">Article topic</label>
         <input

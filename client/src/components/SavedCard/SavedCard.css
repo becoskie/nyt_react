@@ -1,3 +1,13 @@
 .savedCard {
     margin-top: 12rem;
 }
+
+.btn-special {
+    background: #e1b12c;
+    color: white;
+}
+
+.btn-special:hover {
+    background: #bd8f0f;
+}
+

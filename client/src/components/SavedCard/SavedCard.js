@@ -1,5 +1,6 @@
 import React from "react";
 import "./SavedCard.css";
+import moment from 'moment'
 
 const SavedCard = props => {
   const saveCard = props.saved.map(a => (
@@ -9,11 +10,11 @@ const SavedCard = props => {
         <a href={a.url} target="_blank" className="card-link">
             <h5 className="card-title">{a.title}</h5>
           </a>
-          <p className="author card-text">{a.author}</p>
           <p className="card-text">{a.desc}</p>
-          <p className="card-text">{a.section}</p>
-          <p className="card-text">{a.date}</p>
-          <button type="submit" className="btn btn-danger" onClick={() => props.handleDelete(a._id)} title="Click to delete this article.">Delete</button>
+          <p className="author card-text">{a.author}</p>
+          <p className="author card-text">{a.section}</p>
+          <p className="author card-text">{moment(a.date).format("MMM Do YYYY")}</p>
+          <button type="submit" className="btn btn-special" onClick={() => props.handleDelete(a._id)} title="Click to delete this article.">Delete</button>
         </div>
       </div>
     </div>
