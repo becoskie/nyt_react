@@ -36,7 +36,7 @@ class Search extends Component {
       this.state.toYear
     ).then(res => {
       this.setState({ articles: res.data.response.docs });
-      console.log("this.state.articles: ", this.state.articles);
+      //console.log("this.state.articles: ", this.state.articles);
       document.getElementById("create-course-form").reset();
       if(this.state.articles.length < 1) {
         this.setState( {message: `No Articles Found for "${this.state.topic}"`} );
@@ -46,7 +46,7 @@ class Search extends Component {
 
   handleSaveButton = id => {
     const findArticleByID = this.state.articles.find(el => el._id === id);
-    console.log("findArticleByID: ", findArticleByID);
+    //console.log("findArticleByID: ", findArticleByID);
     const userSave = {
       title: findArticleByID.headline.main,
       date: findArticleByID.pub_date,
