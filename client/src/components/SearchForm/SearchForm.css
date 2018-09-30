@@ -1,18 +1,27 @@
 .search {
-    background: rgba(0,0,0, .5);
+    background: rgba(255,255,255, .8);
     margin-top: 9rem;
     padding: 1rem;
     border-radius: 20px;
-    color: rgba(241, 237, 237, .9);
 }
 
 input[type="text"]
 {
-    background: rgba(241, 237, 237, .8);;
+    background:rgba(52, 58, 64, .3);
     border: none;
+    color: white;
+    
 }
+
+.form-control::-webkit-input-placeholder { color: white; }  /* WebKit, Blink, Edge */
+.form-control:-moz-placeholder { color: white; }  /* Mozilla Firefox 4 to 18 */
+.form-control::-moz-placeholder { color: white; }  /* Mozilla Firefox 19+ */
+.form-control:-ms-input-placeholder { color: white; }  /* Internet Explorer 10-11 */
+.form-control::-ms-input-placeholder { color: white; }  /* Microsoft Edge */
+
 input[type="text"]:focus
 {
-    background: rgba(241, 237, 237, .9);;
+    background:rgba(52, 58, 64, .7);
     border: none;
+    color: white;
 }
